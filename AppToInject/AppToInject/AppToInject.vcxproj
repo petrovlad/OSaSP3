@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6d55f275-cdbe-49a8-bf1c-e60b0b0faeca}</ProjectGuid>
-    <RootNamespace>DynamicLinking</RootNamespace>
+    <ProjectGuid>{bc5c329a-7e37-4ac5-b2a9-8f3fd2e45612}</ProjectGuid>
+    <RootNamespace>AppToInject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DynamicLinking.cpp" />
+    <ClCompile Include="AppToInject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

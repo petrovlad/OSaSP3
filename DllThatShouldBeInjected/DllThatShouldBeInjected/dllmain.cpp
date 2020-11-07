@@ -1,22 +1,35 @@
 ﻿// dllmain.cpp : Определяет точку входа для приложения DLL.
+
 #include "pch.h"
 #include <tlhelp32.h>
 #include <tchar.h>
 #include <cstdlib>
 #include <psapi.h>
 
+#include <cstdio>
+
+#define _CRT_SECURE_NO_WARNINGS
+#define TARGET_EXE "AppThatOutputString.exe"
+#define TARGET_STR "I hate programming!"
+#define NEW_STR "I love programming!"
+
+extern "C" __declspec(dllexport) int __stdcall ReplaceString(LPTSTR szTargetProcessName, const char* stringToFind, const char* stringToReplace);
+extern "C" __declspec(dllexport) int __stdcall MyStrStr(const char* str, const char* substr, int l1, int l2);
+
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
                      )
 {
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-    case DLL_PROCESS_DETACH:
-        break;
+    if (ul_reason_for_call == DLL_PROCESS_ATTACH) {
+        TCHAR processName[] = TEXT(TARGET_EXE);
+        int result = ReplaceString(processName, TARGET_STR, NEW_STR);
+        if (result != -1) {
+            printf("Success\n");
+        }
+        else {
+            printf("Fuck this\n");
+        }
     }
     return TRUE;
 }
