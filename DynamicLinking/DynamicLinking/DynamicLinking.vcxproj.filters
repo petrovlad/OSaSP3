@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="StaticLinking.cpp">
+    <ClCompile Include="DynamicLinking.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
